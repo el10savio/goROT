@@ -14,7 +14,7 @@ var encryptCmd = &cobra.Command{
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
 		sentence, _ := cmd.Flags().GetString("message")
-		fmt.Println(rot.Encrypt(sentence))
+		fmt.Fprintf(cmd.OutOrStdout(), rot.Encrypt(sentence))
 	},
 }
 
