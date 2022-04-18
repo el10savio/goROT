@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	"github.com/el10savio/goROT/rot"
-
 	"github.com/spf13/cobra"
 )
 
@@ -15,7 +14,7 @@ var decryptCmd = &cobra.Command{
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
 		sentence, _ := cmd.Flags().GetString("message")
-		fmt.Println(rot.Decrypt(sentence))
+		fmt.Fprintf(cmd.OutOrStdout(), rot.Decrypt(sentence))
 	},
 }
 
