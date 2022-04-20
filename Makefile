@@ -22,18 +22,6 @@ semgrep:
 	@echo "semgrep rot"
 	docker run --rm -v "$(shell pwd):/src" returntocorp/semgrep --config=auto
 
-lint-dockerfile:
-	@echo "lint rot Dockerfile"
-	docker run --rm -i hadolint/hadolint < Dockerfile
-
-rot-build:
-	@echo "Building rot Docker Image"
-	DOCKER_BUILDKIT=1 docker build -t goROT -f Dockerfile .
-
-rot-run:
-	@echo "Running Single rot Docker Container"
-	docker run -d goROT
-
 codespell:
 	@echo "checking rot spellings"
 	codespell
